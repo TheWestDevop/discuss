@@ -1,0 +1,13 @@
+<%= form_for @changeset, Routes.topic_path(@conn, :update, @topic), fn f -> %>
+     <br/>
+     <br/>
+    <div class="form-group mt-5">
+     
+     <%= text_input  f, :title, placeholder: "Title", class: "form-control" %>
+     <br/>
+     <%= error_tag f, :title %>
+    </div>
+
+
+    <%= submit "Update Topic" , class: "btn btn-primary" %>
+<% end %>

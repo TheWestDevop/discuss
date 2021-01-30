@@ -1,0 +1,30 @@
+<br/>
+<section class="phx-hero">
+  
+  <h2><%= gettext "Welcome to %{name}!", name: "Dev Discuss" %></h2>
+  <p>Peace of mind from prototype to production</p>
+</section>
+
+<section class="row">
+<article class="column">
+    <h5>Topics</h5>
+    <ul class="collection">
+  <%= for topic <- @topics do %>    
+      <li class="collection-item">
+       <%= topic.title %> 
+    <div class="right">
+   <%= link "Edit", to: Routes.topic_path(@conn, :edit, topic.id) %>
+   <%= link "Delete", to: Routes.topic_path(@conn, :delete, topic.id), method: :delete %>
+    </div>
+    
+      </li>
+  <% end %>
+   </ul>
+  </article>
+</section>
+
+<div class="fixed-action-btn">
+  <%= link to: Routes.topic_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light blue" do %>
+    <i class="material-icons">add</i>
+   <% end %>
+</div>
